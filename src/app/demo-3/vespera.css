@@ -1,0 +1,135 @@
+/* VESPERA tokens. Two loud states, switched by data-mode on .vespera-stage. */
+.vespera {
+  min-height: 100dvh;
+  font-family: var(--font-vespera-body), system-ui, sans-serif;
+  line-height: 1.55;
+}
+
+.vespera-stage {
+  --bg: #fff1d6;
+  --surface: #fff8ea;
+  --ink: #1b1b1b;
+  --accent: #e8412c;
+  --accent-2: #ffc530;
+  --accent-3: #ff8fb1;
+  --rule: #1b1b1b;
+  --pill-bg: #1b1b1b;
+  --pill-fg: #fff1d6;
+
+  position: relative;
+  min-height: 100dvh;
+  background-color: var(--bg);
+  background-image: radial-gradient(rgb(27 27 27 / 0.12) 1.4px, transparent 1.6px);
+  background-size: 18px 18px;
+  color: var(--ink);
+  transition:
+    background-color 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 450ms ease;
+}
+
+.vespera-stage[data-mode='notturno'] {
+  --bg: #0e1f1a;
+  --surface: #17302a;
+  --ink: #fff4e0;
+  --accent: #ff7a1a;
+  --accent-2: #7fe3c0;
+  --accent-3: #ff5ca8;
+  --rule: #fff4e0;
+  --pill-bg: #fff4e0;
+  --pill-fg: #0e1f1a;
+
+  background-image: radial-gradient(rgb(255 244 224 / 0.08) 1.4px, transparent 1.6px);
+}
+
+.vespera-stage :focus-visible {
+  outline: 3px solid var(--accent-2);
+  outline-offset: 3px;
+}
+
+/* Mode-specific content: both states live in the DOM, only the active one renders. */
+.vespera-stage[data-mode='diurno'] .vespera-only-notturno,
+.vespera-stage[data-mode='notturno'] .vespera-only-diurno {
+  display: none;
+}
+
+.vespera-display {
+  font-family: var(--font-vespera-display), Georgia, serif;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+
+.vespera-ticket-label {
+  font-family: var(--font-vespera-condensed), 'Arial Narrow', sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.vespera-script {
+  font-family: var(--font-vespera-script), cursive;
+  line-height: 1.1;
+}
+
+.vespera-hard {
+  border: 3px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.vespera-polaroid {
+  background-color: #ffffff;
+  border: 2px solid var(--ink);
+  box-shadow: 10px 10px 0 var(--ink);
+  padding: 10px 10px 44px;
+}
+
+.vespera-sticker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  background-color: var(--accent-2);
+  color: var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  text-align: center;
+}
+
+.vespera-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: var(--accent);
+  color: #fff8ea;
+  border-block: 3px solid var(--ink);
+}
+
+.vespera-marquee__track {
+  display: inline-flex;
+  gap: 2.5rem;
+  padding-block: 0.4rem;
+  animation: vespera-marquee 30s linear infinite;
+  will-change: transform;
+}
+
+@keyframes vespera-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.vespera-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  width: 100%;
+  height: 100%;
+  opacity: 0.035;
+  pointer-events: none;
+}
+
+.vespera-perforation {
+  background-image: radial-gradient(circle at 50% 50%, var(--bg) 4px, transparent 4.5px);
+  background-size: 14px 14px;
+  background-position: center;
+}

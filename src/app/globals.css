@@ -1,0 +1,51 @@
+@import 'tailwindcss';
+
+/* Native cross-document transitions between /, /demo-1, /demo-2, /demo-3 */
+@view-transition {
+  navigation: auto;
+}
+
+@theme {
+  --color-hub-stone: #111110;
+  --color-hub-ivory: #f4f1ea;
+  --color-hub-muted: #a39e94;
+  --color-hub-line: rgb(244 241 234 / 0.12);
+  --color-hub-brass: #d4955a;
+  --font-hub-serif: var(--font-hub-serif-face), ui-serif, Georgia, serif;
+  --font-hub-mono: var(--font-hub-mono-face), ui-monospace, Menlo, monospace;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-hub-stone);
+    color: var(--color-hub-ivory);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-hub-brass);
+    outline-offset: 3px;
+  }
+}
+
+/* Reduced motion: collapse every transition and animation to a near-instant state */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0.01ms !important;
+  }
+}

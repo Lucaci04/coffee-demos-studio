@@ -1,0 +1,28 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+*.tsbuildinfo
+
+# local reports (generated, not shipped)
+/_local/
+
+# debug
+npm-debug.log*
+
+# personal launcher scripts (local paths)
+/*.command
+
+# root planning documents kept local only
+/*.md
+!/README.md

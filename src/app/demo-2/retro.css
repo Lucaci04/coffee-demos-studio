@@ -1,0 +1,102 @@
+/* SUNDAY ROAST '74 tokens. Scoped to .retro so nothing leaks into other demos. */
+.retro {
+  --cream: #f5e9d3;
+  --mustard: #e3a62f;
+  --orange: #c8542b;
+  --brown: #3d2a1f;
+  --teal: #2e7d74;
+  --avocado: #6b7a2a;
+  --paper: var(--cream);
+  --carbon: var(--brown);
+  --signal: var(--orange);
+  --pill-bg: #3d2a1f;
+  --pill-fg: #f5e9d3;
+
+  min-height: 100dvh;
+  background-color: var(--cream);
+  background-image: radial-gradient(rgb(61 42 31 / 0.09) 1.2px, transparent 1.2px);
+  background-size: 16px 16px;
+  color: var(--brown);
+  font-family: var(--font-retro-body), ui-monospace, monospace;
+  line-height: 1.6;
+}
+
+.retro :focus-visible {
+  outline: 3px solid var(--mustard);
+  outline-offset: 3px;
+}
+
+.retro-display {
+  font-family: var(--font-retro-display), Georgia, serif;
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.retro-title-shadow {
+  text-shadow: 4px 4px 0 var(--mustard);
+}
+
+.retro-mono {
+  font-family: var(--font-retro-body), ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+
+.retro-cell {
+  border: 2px solid var(--brown);
+  border-radius: 18px;
+  background-color: #fbf3e2;
+  box-shadow: 6px 6px 0 var(--brown);
+}
+
+.retro-ink {
+  background-color: var(--brown);
+  color: var(--cream);
+}
+
+.retro-stripes {
+  height: 26px;
+  background: linear-gradient(
+    var(--orange) 0 33.3%,
+    var(--mustard) 33.3% 66.6%,
+    var(--brown) 66.6% 100%
+  );
+}
+
+.retro-ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: var(--orange);
+  color: var(--cream);
+}
+
+.retro-ticker__track {
+  display: inline-flex;
+  gap: 3rem;
+  padding-block: 0.6rem;
+  animation: retro-ticker 40s linear infinite;
+  will-change: transform;
+}
+
+@keyframes retro-ticker {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.retro-range {
+  accent-color: var(--orange);
+  width: 100%;
+}
+
+.retro-plot-line {
+  fill: none;
+  stroke-width: 2.5;
+  vector-effect: non-scaling-stroke;
+}
